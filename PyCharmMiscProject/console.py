@@ -4,7 +4,7 @@ sys = generer_systeme_stellaire()
 
 def imprimer_liste_satellites(planetes):
     for satellite in planetes.satellites:
-        print("\nCatégorie:", satellite.formation, "\nDistance:", satellite.distance, "km\nRésonance:", satellite.resonance, "\nMasse:", satellite.masse, "masses terrestres\nGravité:", satellite.gravite, "Période orbitale:", satellite.periode_orbitale, "heures\nTempérature:", satellite.temp-273.15, "C\nComposition atmosphérique:", satellite.atmosphere, "\nHydrographie:", satellite.quantite_eau, satellite.hydrographie)
+        print("\nCatégorie:", satellite.formation, "\nDistance:", satellite.distance, "km\nRésonance:", satellite.resonance, "\nMasse:", satellite.masse, "masses terrestres\nGravité:", satellite.gravite, "\nPériode orbitale:", satellite.periode_orbitale, "heures\nTempérature:", satellite.temp-273.15, "C\nComposition atmosphérique:", satellite.atmosphere, "\nHydrographie:", satellite.quantite_eau, satellite.hydrographie)
         if satellite.contient_vie:
             print(satellite.profil_vie)
 
@@ -27,7 +27,7 @@ for planete in sys.planetes:
     elif planete.categorie == "ceinture_asteroide":
         print("\nCentre de masse: Étoile numéro", planete.centre_de_masse+1, "\nCatégorie:", planete.categorie, "\nDistance:", planete.distance, "UA\nRésonance:", planete.resonance)
     else:
-        print("\nCentre de masse: Étoile numéro", planete.centre_de_masse + 1, "\nCatégorie:", planete.categorie, "\nExcentricité:", planete.excentricite, "\nDistance:", planete.distance, "UA\nRésonance:", planete.resonance, "\nMasse:", planete.masse, "masses terrestres\nGravité:", planete.gravite, "Période orbitale:", planete.periode_orbitale, "jours\nPériode de rotation:", determiner_verrouillage(planete), "\nInclinaison axiale:", planete.inclinaison_axiale, "degrés.\nTempérature:", planete.temp-273.15, "°C\nComposition atmosphérique:", planete.atmosphere, "\nHydrographie:", planete.quantite_eau, planete.hydrographie*100, "%\nGéologie:", planete.geologie[0], planete.tectonique_mobile, "\nChamp magnétique:", planete.champ_magnetique[0])
+        print("\nCentre de masse: Étoile numéro", planete.centre_de_masse + 1, "\nCatégorie:", planete.categorie, "\nExcentricité:", planete.excentricite, "\nDistance:", planete.distance, "UA\nRésonance:", planete.resonance, "\nMasse:", planete.masse, "masses terrestres\nGravité:", planete.gravite, "\nPériode orbitale:", planete.periode_orbitale, "jours\nPériode de rotation:", determiner_verrouillage(planete), "\nInclinaison axiale:", planete.inclinaison_axiale, "degrés.\nTempérature:", planete.temp-273.15, "°C\nComposition atmosphérique:", planete.atmosphere, "\nHydrographie:", planete.quantite_eau, planete.hydrographie*100, "%\nGéologie:", planete.geologie[0], planete.tectonique_mobile, "\nChamp magnétique:", planete.champ_magnetique[0])
         if planete.contient_vie:
             print(planete.profil_vie)
         imprimer_liste_satellites(planete)

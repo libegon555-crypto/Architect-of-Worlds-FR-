@@ -566,7 +566,7 @@ class Planete(Astre):
             if self.inclinaison_axiale < 0:
                 self.inclinaison_axiale = 0
             if len(liste_etoiles) == 1:
-                self.temperature_corps_noir = 278*math.pow(luminosite, 0.25)/math.pow(liste_etoiles[centre_de_masse.centre_de_masse].distance[1], 1/2)
+                self.temperature_corps_noir = 278*math.pow(luminosite, 0.25)/math.pow(centre_de_masse.distance[1], 1/2)
             else:
                 temperature_initiale = 0
                 for etoile in liste_etoiles:

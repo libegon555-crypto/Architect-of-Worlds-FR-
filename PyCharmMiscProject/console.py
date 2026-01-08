@@ -4,7 +4,7 @@ sys = generer_systeme_stellaire()
 
 def imprimer_liste_satellites(planetes):
     for satellite in planetes.satellites:
-        print("\nCatégorie:", satellite.formation, "\nDistance:", satellite.distance, "km\nRésonance:", satellite.resonance, "\nMasse:", satellite.masse, "masses terrestres\nGravité:", satellite.gravite, "\nPériode orbitale:", satellite.periode_orbitale, "heures\nTempérature:", satellite.temp-273.15, "°C\nComposition atmosphérique:", satellite.atmosphere, "\nAlbédo:", satellite.albedo, "\nHydrographie:", satellite.quantite_eau, satellite.hydrographie)
+        print("\nCatégorie:", satellite.formation, "\nDistance:", satellite.distance, "km\nRésonance:", satellite.resonance, "\nMasse:", satellite.masse, "masses terrestres\nGravité:", satellite.gravite, "\nPériode orbitale:", satellite.periode_orbitale, "heures\nTempérature:", satellite.temp-273.15, "°C\nComposition atmosphérique:", satellite.atmosphere, "\nAlbédo:", satellite.albedo, "\nHydrographie:", satellite.quantite_eau, satellite.hydrographie*100, "%")
         if satellite.contient_vie:
             print(satellite.profil_vie)
 

@@ -566,7 +566,7 @@ class Planete(Astre):
             if self.inclinaison_axiale < 0:
                 self.inclinaison_axiale = 0
             if len(liste_etoiles) == 1:
-                self.temperature_corps_noir = 278*math.pow(luminosite, 0.25)/math.pow(centre_de_masse.distance[1], 1/2)
+                self.temperature_corps_noir = 278*math.pow(luminosite, 0.25)/math.pow(liste_etoiles[centre_de_masse.centre_de_masse].distance[1], 1/2)
             else:
                 temperature_initiale = 0
                 for etoile in liste_etoiles:
@@ -785,7 +785,7 @@ class Planete(Astre):
                 self.profil_vie["Multicellularite"] = self.age - temps_multicellularite
                 multicellularite = True
             if est_satellite:
-                if liste_etoiles[centre_de_masse.centre_de_masse].categorie != "naine_brune":
+                if liste_etoiles[centre_de_masse.centre_de_masse].categorie != "naine_brune" and liste_etoiles[centre_de_masse.centre_de_masse].categorie != "naine_blanche":
                     temps_photosynthese = temps_abiogenese_surface + (chercher_tableau(liste_etoiles[centre_de_masse.centre_de_masse].classe_spectrale, tableau_photosynthese,False) * randomd6(3))
                     if self.age > temps_photosynthese:
                         self.profil_vie["Photosynthese"] = self.age - temps_photosynthese
@@ -794,7 +794,7 @@ class Planete(Astre):
                             self.profil_vie["Catastrophe_oxygene"] = self.age - temps_catastrophe_oxygene
                             self.contient_dioxygene = True
             else:
-                if centre_de_masse.categorie != "naine_brune":
+                if centre_de_masse.categorie != "naine_brune" and centre_de_masse.categorie != "naine_blanche":
                     temps_photosynthese = temps_abiogenese_surface + (chercher_tableau(centre_de_masse.classe_spectrale, tableau_photosynthese, False)*randomd6(3))
                     if self.age > temps_photosynthese:
                         self.profil_vie["Photosynthese"] = self.age - temps_photosynthese

@@ -354,7 +354,7 @@ class Sys:
                                 planete.distance[1] = liste_planetes[n-1].distance[1]*chercher_tableau(ratio_corrige, tableau_resonance, True)[0]
                                 planete.resonance = chercher_tableau(ratio_corrige, tableau_resonance, True)[1]
                                 if planete.resonance == "2:1":
-                                    if liste_planetes[n+1] == liste_planetes[-1]:
+                                    if liste_planetes[n] == liste_planetes[-1]:
                                         planete.distance[1] *= 1.008
                                         planete.resonance = "Aucune"
                                     resonance_laplace = True

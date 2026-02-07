@@ -565,16 +565,7 @@ class Planete(Astre):
             self.inclinaison_axiale = randomd6(3)-8
             if self.inclinaison_axiale < 0:
                 self.inclinaison_axiale = 0
-            if len(liste_etoiles) == 1:
-                self.temperature_corps_noir = 278*math.pow(luminosite, 0.25)/math.pow(centre_de_masse.distance[1], 1/2)
-            else:
-                temperature_initiale = 0
-                for etoile in liste_etoiles:
-                    if etoile.distance[1] <= liste_etoiles[centre_de_masse.centre_de_masse].distance[1]:
-                        temperature_initiale += math.pow(etoile.luminosite/math.pow(centre_de_masse.distance[1]+liste_etoiles[centre_de_masse.centre_de_masse].distance[1]-etoile.distance[1], 2), 0.25)
-                    else:
-                        temperature_initiale += math.pow(etoile.luminosite/math.pow(etoile.distance[1]-(centre_de_masse.distance[1]+liste_etoiles[centre_de_masse.centre_de_masse].distance[1]), 2), 0.25)
-                self.temperature_corps_noir = temperature_initiale*278
+            self.temperature_corps_noir = centre_de_masse.temperature_corps_noir
         else:
             self.periode_orbitale = 8770/24*math.pow(math.pow(self.distance[1], 3)/self.masse, 0.5)
             if len(self.satellites) > 0:
